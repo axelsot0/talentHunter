@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-coral: #e75f45;
+  --color-coral-light: #f08a76;
+  --color-coral-dark: #c94a32;
+  --color-teal: #007b77;
+  --color-teal-light: #3bb6b4;
+  --color-teal-dark: #005c59;
+  --color-background: #fffffb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f7f7f3;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #717171;
+  --color-text-inverse: #fffffb;
+  --color-border: #e5e5e0;
+  --color-border-light: #f0f0eb;
+
+  /* Typography */
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Border Radius */
+  --radius-button: 0.625rem;
+  --radius-card: 0.875rem;
+  --radius-input: 0.5rem;
+  --radius-modal: 1rem;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+::selection {
+  background-color: #e75f45;
+  color: white;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Flip card */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
